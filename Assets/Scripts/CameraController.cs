@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour
         curXRot = -50;
 
     }
-
+    //Ada was here
     public void OnZoom(InputAction.CallbackContext context)
     {
         //getting the scroll wheel value
