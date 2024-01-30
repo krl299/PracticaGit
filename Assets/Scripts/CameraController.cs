@@ -7,9 +7,9 @@ public class CameraController : MonoBehaviour
 {
     public float moveSpeed;
     [Header("Rotate config")]
-    public float minXRot;
-    public float maxXRot;
-    private float curXRot;
+    public float minXRotation;
+    public float maxXRotation;
+    private float curXRotation;
     public float rotateSpeed;
 
     [Header("Zoom config")]
@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
         cam = Camera.main;
         curZoom = cam.transform.localPosition.y;
 
-        curXRot = -50;
+        curXRotation = -50;
 
     }
     //Ada was here
@@ -61,8 +61,8 @@ public class CameraController : MonoBehaviour
             mouseX = context.ReadValue<Vector2>().x;
             float mouseY = context.ReadValue<Vector2>().y;
 
-            curXRot += -mouseY * rotateSpeed;
-            curXRot = Mathf.Clamp(curXRot, minXRot, maxXRot);                   
+            curXRotation += -mouseY * rotateSpeed;
+            curXRotation = Mathf.Clamp(curXRotation, minXRotation, maxXRotation);                   
         }
     }
 
@@ -78,7 +78,7 @@ public class CameraController : MonoBehaviour
         cam.transform.localPosition = Vector3.up * curZoom;
 
         //applying ROTATION to the anchor
-        transform.eulerAngles = new Vector3(curXRot, transform.eulerAngles.y + (mouseX * rotateSpeed), 0.0f);
+        transform.eulerAngles = new Vector3(curXRotation, transform.eulerAngles.y + (mouseX * rotateSpeed), 0.0f);
 
         //applying MOVEMENT to the camera
         Vector3 forward = cam.transform.forward;
