@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed;
     [Header("Rotate config")]
     public float minXRotation;
     public float maxXRotation;
@@ -13,19 +14,24 @@ public class CameraController : MonoBehaviour
     public float rotateSpeed;
 
     [Header("Zoom config")]
-    public float minZoom;
-    public float maxZoom;
-    public float zoomSpeed;
+    [SerializeField]
+    private float minZoom;
+    [SerializeField]
+    private float maxZoom;
+    [SerializeField]
+    private float zoomSpeed;
 
     private float curZoom;
     // reference to the camera object
+    [SerializeField]
     private Camera cam;
-
+    [SerializeField]
     private float mouseX;
 
     //Indicates if the camera is rotating
+    [SerializeField]
     private bool rotating;
-
+    [SerializeField]
     private Vector2 moveDirection;
 
 
@@ -52,9 +58,10 @@ public class CameraController : MonoBehaviour
         rotating = context.ReadValueAsButton();
         if (!rotating) mouseX = 0; //To avoid infinite spin
     }
-
+    //jose luis was here
     public void OnRotate(InputAction.CallbackContext context)
     {
+        //a
         //If clicking right button mouse
         if(rotating)
         {
