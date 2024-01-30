@@ -26,13 +26,15 @@ public class CameraController : MonoBehaviour
 
     private float curZoom;
     // reference to the camera object
+    [SerializeField]
     private Camera cam;
-
+    [SerializeField]
     private float mouseX;
 
     //Indicates if the camera is rotating
+    [SerializeField]
     private bool rotating;
-
+    [SerializeField]
     private Vector2 moveDirection;
 
 
@@ -40,9 +42,7 @@ public class CameraController : MonoBehaviour
     {
         cam = Camera.main;
         curZoom = cam.transform.localPosition.y;
-
         curXRot = -50;
-
     }
     //Ada was here
     public void OnZoom(InputAction.CallbackContext context)
@@ -59,9 +59,10 @@ public class CameraController : MonoBehaviour
         rotating = context.ReadValueAsButton();
         if (!rotating) mouseX = 0; //To avoid infinite spin
     }
-
+    //jose luis was here
     public void OnRotate(InputAction.CallbackContext context)
     {
+        //a
         //If clicking right button mouse
         if(rotating)
         {
