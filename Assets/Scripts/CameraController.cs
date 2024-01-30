@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     
     /// <summary>
     /// Awake is called when the script instance is being loaded.
-    /// It initializes the game camera, input actions, and sets up the event handlers for player actions.
+    /// It initializes the game camera, input actions, and sets up the event handlers for player actions siu.
     /// </summary>
     private void Awake()
     {
@@ -52,6 +52,7 @@ public class CameraController : MonoBehaviour
     {
         currentZoom = 45;
         currentRotationX = -50;
+        
     }
 
     /// <summary>
