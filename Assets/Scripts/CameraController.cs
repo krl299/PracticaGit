@@ -5,17 +5,24 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed;
     [Header("Rotate config")]
-    public float minXRot;
-    public float maxXRot;
+    [SerializeField]
+    private float minXRot;
+    [SerializeField]
+    private float maxXRot;
     private float curXRot;
-    public float rotateSpeed;
+    [SerializeField]
+    private float rotateSpeed;
 
     [Header("Zoom config")]
-    public float minZoom;
-    public float maxZoom;
-    public float zoomSpeed;
+    [SerializeField]
+    private float minZoom;
+    [SerializeField]
+    private float maxZoom;
+    [SerializeField]
+    private float zoomSpeed;
 
     private float curZoom;
     // reference to the camera object
