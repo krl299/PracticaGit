@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    //Tuyo en america ahora
    public BuildingPreset preset;
 }
