@@ -18,7 +18,7 @@ public class BuildingPlacement : MonoBehaviour
 
     public GameObject placementIndicator;
     public GameObject bulldozerIndicator;
-    
+    //The Cake is a lie, Glados is evil like your mom, because she is evil like her and is your mommy dommy howwy macarrony
     //Reference to Player Input System
     private PlayerInputActions playerInputActions;
 

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    //Hannita Adelaida was here, babies =3
     private InputSystem inputActions;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private float cameraMovementSpeed;
