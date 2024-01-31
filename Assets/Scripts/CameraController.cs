@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    //Hannita Adelaida was here, babies =3
     private InputSystem inputActions;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private float cameraMovementSpeed;
@@ -71,6 +72,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private void RotateCamera()
     {
+        //jose was here
         float mouseX;
         if (!isRotating)
         {
@@ -101,6 +103,7 @@ public class CameraController : MonoBehaviour
     /// <param name="inputVector">The input vector, where x represents horizontal movement and y represents vertical movement.</param>
     public void MoveCamera(Vector2 inputVector)
     {
+        //A
         Vector3 forward = gameCamera.transform.forward;
         forward.y = 0;
         forward.Normalize();

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class BuildingPlacement : MonoBehaviour
 {
     private bool currentlyPlacing;
-    private bool currentlyBulldozering;
+    private bool currentlyDeleteing;
 
     private BuildingPreset curBuildingPreset;
 
@@ -17,24 +17,24 @@ public class BuildingPlacement : MonoBehaviour
     private Vector3 curIndicatorPos;
 
     public GameObject placementIndicator;
-    public GameObject bulldozerIndicator;
+    public GameObject deleteIndicator;
     
     //Reference to Player Input System
-    private PlayerInputActions playerInputActions;
+    private PlayerInputActions accionesJugador;
 
     private void Awake()
     {        
-        playerInputActions = new PlayerInputActions();
+        accionesJugador = new PlayerInputActions();
         //Link the Cancel_Building Action to the CancelBuildingPlacement function
-        playerInputActions.Player.Cancel_Building.performed += e => CancelPlacement();
+        accionesJugador.Player.Cancel_Building.performed += e => CancelPlacement();
         //Link the Left Mouse Click to the PlaceBuilding function
-        playerInputActions.Player.PlaceDelete_Building.performed += e => PlaceDeleteBuilding();
+        accionesJugador.Player.PlaceDelete_Building.performed += e => PlaceDeleteBuilding();
         //Rotate Building
-        playerInputActions.Player.Rotate_Building.performed += e => RotateBuilding();
+        accionesJugador.Player.Rotate_Building.performed += e => RotateBuilding();
 
 
         //Enable playerInput
-        playerInputActions.Enable();
+        accionesJugador.Enable();
     }
 
 
@@ -62,7 +62,7 @@ public class BuildingPlacement : MonoBehaviour
                 GameObject buildingObj = Instantiate(curBuildingPreset.prefab, curIndicatorPos, placementIndicator.transform.rotation);
                 City.Instance.OnPlaceBuilding(buildingObj.GetComponent<Building>());
             }
-            else if (currentlyBulldozering && ExistingBuilding != null)
+            else if (currentlyDeleteing && ExistingBuilding != null)
             {
                    City.Instance.OnRemoveBuilding(ExistingBuilding);
             }
@@ -76,7 +76,7 @@ public class BuildingPlacement : MonoBehaviour
     public void BeginNewBuildingPlacement (BuildingPreset preset)
     {
         //TODO make sure we have enough money
-        if (!currentlyBulldozering) { 
+        if (!currentlyDeleteing) { 
             currentlyPlacing = true;
             curBuildingPreset = preset;
             placementIndicator.GetComponentInChildren<MeshFilter>().mesh = preset.prefab.GetComponentInChildren<MeshFilter>().sharedMesh;
@@ -92,19 +92,19 @@ public class BuildingPlacement : MonoBehaviour
         if (currentlyPlacing) { 
             currentlyPlacing = false;
             placementIndicator.SetActive(false);
-        }else if (currentlyBulldozering)
+        }else if (currentlyDeleteing)
         {
-            currentlyBulldozering = false;
-            bulldozerIndicator.SetActive(false);
+            currentlyDeleteing = false;
+            deleteIndicator.SetActive(false);
         }
     }
 
-    public void BeginNewBulldozer()
+    public void BeginNewDelete()
     {
         if (!currentlyPlacing) { 
-            currentlyBulldozering = true;
-            bulldozerIndicator.SetActive (true);
-            bulldozerIndicator.transform.position  = new Vector3(0, -99, 0);
+            currentlyDeleteing = true;
+            deleteIndicator.SetActive (true);
+            deleteIndicator.transform.position  = new Vector3(0, -99, 0);
         }
     }
 
@@ -116,11 +116,11 @@ public class BuildingPlacement : MonoBehaviour
 
             curIndicatorPos = Selector.Instance.GetCurTilePosition();
             
-
+            //a
             if (currentlyPlacing) 
                 placementIndicator.transform.position = curIndicatorPos;
-            else if (currentlyBulldozering)
-                bulldozerIndicator.transform.position = curIndicatorPos;
+            else if (currentlyDeleteing)
+                deleteIndicator.transform.position = curIndicatorPos;
         }
         
     }
