@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    private InputSystem inputActions;
+    //private InputSystem inputActions;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private float cameraMovementSpeed;
     [SerializeField] private Vector2 moveDir;
@@ -32,7 +31,7 @@ public class CameraController : MonoBehaviour
     {
         gameCamera = GetComponentInChildren<Camera>();
 
-        inputActions = new InputSystem();
+        /*inputActions = new InputSystem();
 
         inputActions.Player.Move.performed += ctx => moveDir = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveDir = Vector2.zero;
@@ -41,7 +40,7 @@ public class CameraController : MonoBehaviour
         inputActions.Player.Rotate.canceled += ctx => isRotating = false;
         inputActions.Player.Look.performed += ctx => currentRotation = ctx.ReadValue<Vector2>();
         inputActions.Player.Look.canceled += ctx => currentRotation = Vector2.zero;
-        inputActions.Player.Enable();
+        inputActions.Player.Enable();*/
     }
 
     /// <summary>
