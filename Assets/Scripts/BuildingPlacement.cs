@@ -75,7 +75,8 @@ public class BuildingPlacement : MonoBehaviour
     /// <param name="preset"></param>
     public void BeginNewBuildingPlacement (BuildingPreset preset)
     {
-        //TODO make sure we have enough money
+
+        // make sure we have enough money
         if (!currentlyBulldozering) { 
             currentlyPlacing = true;
             curBuildingPreset = preset;
@@ -116,7 +117,7 @@ public class BuildingPlacement : MonoBehaviour
 
             curIndicatorPos = Selector.Instance.GetCurTilePosition();
             
-
+            //a
             if (currentlyPlacing) 
                 placementIndicator.transform.position = curIndicatorPos;
             else if (currentlyBulldozering)
